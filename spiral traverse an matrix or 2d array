@@ -1,0 +1,40 @@
+public: 
+    //Function to return a list of integers denoting spiral traversal of matrix.
+    vector<int> spirallyTraverse(vector<vector<int> > matrix, int r, int c) 
+    {
+        vector<int> ans;
+        int count =0;
+        int total= r*c;
+        int startingrow = 0;
+        int startingcol= 0;
+        int endrow=r-1;
+        int endcol=c-1;
+        
+        while(count< total)
+        {
+            for( int index=startingcol ; index<=endcol && count<total ; index++)
+            {
+                ans.push_back(matrix[startingrow][index]);
+                count++;
+            }
+            startingrow++;
+             for( int index=startingrow ; index<=endrow && count<total ; index++)
+            {
+                ans.push_back(matrix[index][endcol]);
+                count++;
+            }
+            endcol--;
+             for( int index=endcol ; index>=startingcol && count<total ; index--)
+            {
+                ans.push_back(matrix[endrow][index]);
+                count++;
+            }
+            endrow--;
+             for( int index=endrow ; index>=startingrow && count<total ; index--)
+            {
+                ans.push_back(matrix[index][startingcol]);
+                count++;
+            }
+            startingcol++;
+        }
+        return ans;
