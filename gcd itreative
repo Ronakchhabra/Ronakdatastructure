@@ -1,0 +1,33 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+int gcd( int a, int b)
+{
+    if( a==0)return b;
+    if( b==0)return a;
+    while(a!=b)
+    {
+        if( a>b)a=a-b;
+        else b=b-a;
+    }
+    return a;
+    
+}
+int main()
+{
+    int a;
+    int b;
+    cin>> a>>b;
+    /*int maxi = -1;
+    for( int i= 1 ; i<= b ; i++)
+    {
+        if( a%i==0 && b%i==0)
+        {
+            maxi = max( maxi, i);
+        }
+    }
+    cout<< maxi;*/
+    int ans = gcd(a,b);
+    cout << ans;}
