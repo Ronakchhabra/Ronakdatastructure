@@ -1,0 +1,48 @@
+// brute force
+class Solution {
+public:
+    int countPrimes(int n) 
+    {
+        int count =1;
+        int j=0;
+        if(n<=2)
+            return 0;
+        int e=3;
+        while(e<n){
+            j=0;
+            
+        for(int i=2 ; i<e; i++)
+        {
+            if(e%i==0)
+               j++;
+            
+        }
+        if(j==0)
+            count++;
+        e++;}
+     
+    return count ;
+        
+    }
+};
+optimized'''''
+class Solution {
+public:
+  
+    int countPrimes(int n) {
+        vector<bool> arr(n+1, true);
+        int count=0;
+        arr[0]=arr[1]=false;
+        for(int i=2; i<n ; i++)
+        {
+            if(arr[i])
+            {    count++;
+            for( int j=2*i ; j<n ; j= j+i)
+            {
+                arr[j]=0;
+            }
+            }
+        }
+        return count;
+    }
+};
