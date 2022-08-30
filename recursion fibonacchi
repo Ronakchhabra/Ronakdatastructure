@@ -1,0 +1,24 @@
+#include <algorithm>
+#include <iostream>
+#include <bits/stdc++.h> 
+
+using namespace std;
+int fabona( int n )
+{
+    if(n==0)
+    return n;
+    if(n==1)
+    return n;
+    
+    int n1= fabona(n-1);
+    int n2= fabona(n-2);
+    return n1+n2;
+}
+int main()
+{
+    int n;
+    n=8;
+    int ans= fabona(n);
+    cout<< ans;
+  
+   }
