@@ -1,0 +1,48 @@
+pair<int,int> firstOccurence(vector<int>& arr,int s,int e,int k ){
+    if (s>e)
+    {
+     pair<int,int> positions; 
+        positions.first=-1;
+        positions.second=-1;
+        return positions;
+    }
+
+    int mid = s + (e-s)/2;
+    if (arr[mid] == k)
+    {   
+
+        int first,last;
+        pair<int,int> positions;
+        first = mid;
+        last = mid;
+
+        while ((arr[first] == k) && first >=0)
+        {
+            first--;
+        }
+        positions.first = first + 1;
+        while((arr[last] == k) && last < arr.size())
+        {
+            last++;
+        }
+        positions.second = last - 1;
+        return positions;
+    }
+    if (arr[mid] < k)
+    {
+        return firstOccurence(arr,mid+1,e,k);
+    }
+    else
+    { 
+        return firstOccurence(arr,s,mid-1,k);
+    } 
+}             
+
+pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
+{
+    pair<int,int> positions;
+
+    positions = firstOccurence(arr,0,n,k);
+
+    return positions;
+}
