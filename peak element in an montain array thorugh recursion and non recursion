@@ -1,0 +1,51 @@
+class Solution {
+public:
+int ans;
+int check(vector<int>&v,int s,int e)
+{
+int mid = s+(e-s)/2;
+if(s>=e)
+return -1;
+
+    if(v[mid]<v[mid+1])
+	{
+		ans = mid+1;
+        
+		check(v,mid+1,e);
+	}
+    else
+    	check(v,s,mid);
+    return ans;
+
+}
+int peakIndexInMountainArray(vector<int>& arr) {
+     int s=0;
+    int e= arr.size()-1;
+    int p = check(arr,s,e);
+    return p;
+}
+};
+
+
+/* without recurcion
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int s=0;
+        int e=arr.size()-1;
+        int mid = s+(e-s)/2;
+        while (s<e)
+        {
+            if( arr[mid]<arr[mid+1])
+            {
+                s=mid+1;
+            }
+            else{
+                e=mid;
+            }
+            mid = s+(e-s)/2;
+        }
+        return e;
+        
+    }
+};*/
