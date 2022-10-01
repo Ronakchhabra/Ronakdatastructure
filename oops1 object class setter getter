@@ -1,0 +1,36 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class hero {
+    //public:
+    //int points;
+    private:
+    char name[10]="ronak_3";
+     int points;
+    
+    public:
+      string getname(){
+        return name;
+      }
+      int getpoints()
+      {
+          return points;
+      }
+      void setpoints(  int a){
+        points=a  ;
+        
+      }
+};
+int main()
+{
+    //defining object 
+    hero h1;
+    //cout<< h1.points<< endl;
+    //over1
+    
+    //getter
+    cout<< h1.getname()<< endl;
+    //setter
+    h1.setpoints(70);
+    cout << " " << (h1.getpoints());
+    }
