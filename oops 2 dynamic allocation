@@ -1,0 +1,39 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class hero
+{
+    //public:
+    //int points;
+private:
+    char name[10]="ronak_3";
+    int points;
+
+public:
+    string getname()
+    {
+        return name;
+    }
+    int getpoints()
+    {
+        return points;
+    }
+    void setpoints(  int a)
+    {
+        points=a  ;
+
+    }
+};
+int main()
+{
+    //dynam,ic allocation
+    hero* h1 = new hero();
+    (*h1).setpoints(70);
+    cout << " " << (*h1).getpoints();
+
+
+
+
+
+
+}
