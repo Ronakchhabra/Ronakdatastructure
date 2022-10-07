@@ -1,0 +1,71 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+class Node
+{
+    public:
+    int data;
+    Node* next;
+
+};
+void print( Node* &head)
+{
+    Node * print = head;
+    while( print!= NULL)
+    {
+        cout<< print-> data<< " ";
+        print = print->next;
+    }
+    cout<< endl;
+}
+void inserinend(Node* &tail , int d)
+{
+    Node* temp= new Node();
+    temp->data =d;
+    temp->next=NULL;
+    tail->next=temp;
+    tail=temp;
+}
+void insertathead (Node * &head,int d)
+{
+    Node *temp = new Node();
+    temp->data =d;
+    temp->next = head;
+    head =temp;
+    
+}
+void insertinmiddle (Node* &head , int position , Node* &tail , int d)
+{
+    Node* nodetoi = new Node();
+    nodetoi->data = d;
+    Node* temp = head;
+    int cnt=1;
+    
+    while(cnt< position-1)
+    {
+       temp=temp->next ;
+       cnt++;
+      
+    }
+    nodetoi->next=temp->next;
+    temp->next=nodetoi;
+}
+int main()
+{
+    Node * temp = new Node();// temp Node banaya jisme 10 data dala
+    Node * head = temp;
+   /* print(head);
+    insertathead(head , 10);
+    insertathead(head , 12);
+    insertathead(head , 113);
+    print (head);*/
+    Node* tail= temp;
+    inserinend(tail,10);
+    inserinend(tail,12);
+    inserinend(tail,13);
+    print(head);
+    insertinmiddle(head , 2 , tail, 5);
+    print(head);
+
+
+}
